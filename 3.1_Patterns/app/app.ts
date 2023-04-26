@@ -1,10 +1,14 @@
-import fs from 'fs/promises';
-import path from 'path';
+const fs = require('fs/promises');
+const path = require('path');
 
-const inbox: string = path.join(__dirname, './inbox')
-const outbox: string = path.join(__dirname, './outbox')
+const inbox: string = path.join(__dirname, '../inbox')
+const outbox: string = path.join(__dirname, '../outbox')
 
 function reverseText(text: string): string {
+    if (typeof text !== "string") {
+      console.error("You should provide a string");
+      
+    }
     return text.split('').reverse().join('');
   }
 
@@ -22,6 +26,13 @@ async function processFiles(): Promise<void> {
   }
 }
 
-processFiles();
+//processFiles();
+
+module.exports = {
+  reverseText,
+  processFiles
+}
+
+
 
 

@@ -1,0 +1,1 @@
+const {processFiles} = require("../app/app")

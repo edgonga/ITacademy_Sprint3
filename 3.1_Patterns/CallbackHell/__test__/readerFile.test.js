@@ -1,5 +1,6 @@
 const {readerFile} = require("../app/app")
-const path = require('path')
+const fs = require('fs')
+const fsp = fs.promises
 
 test("returns the data correctly", async() => {
     const data = "React & Angular"
@@ -11,6 +12,6 @@ test("returns the data correctly", async() => {
 
 test("it throws an error if reading a non-existing file", async() => {
     const nonExistingFile = "facturas.txt"
-    jest.spyOn(fsp, "readFile").mockResolvedValue(new Error("File not found"))
+    jest.spyOn(fsp, "readFile").mockRejectedValue(new Error("File not found"))
     await expect(readerFile(nonExistingFile)).rejects.toThrow("File not found")
 })

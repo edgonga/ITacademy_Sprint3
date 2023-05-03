@@ -37,7 +37,7 @@ async function readerFile (file: string): Promise<string> {
   }
 }
  async function readerDir (): Promise<string> {
-  try {
+  try { 
     return await fsp.readdir(inbox)
   } catch (err) {
     console.error("Error in reading the directory");

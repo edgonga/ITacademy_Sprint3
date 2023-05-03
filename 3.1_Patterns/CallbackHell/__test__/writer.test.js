@@ -17,4 +17,8 @@ test("It throws an error if the directory does not exist", async() => {
     await expect(writer(filePath, testPath)).rejects.toThrowError("ENOENT: no such file or directory, open 'C:\\Users\\formacio\\Documents\\ITacademy_Sprint3\\3.1_Patterns\\CallbackHell\\app\\outbox\\C:\\Users\\formacio\\Documents\\ITacademy_Sprint3\\3.1_Patterns\\CallbackHell\\__test__\\nonexisting\\testDir.txt")
 })
 
+
+
+
+
  

@@ -3,7 +3,6 @@ import { Score } from "./Score"
 
 export class Game {
     #gameNaming
-    #playerNaming
     private static score: Score
     constructor(gameNaming) {
         this.#gameNaming = gameNaming

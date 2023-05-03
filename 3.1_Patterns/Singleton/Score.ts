@@ -5,7 +5,8 @@ export class Score {
     private static instance: Score
 
     private constructor() {
-
+        this.players = []
+        this.game = new Game()
     }
 
     public static getInstance(): Score {

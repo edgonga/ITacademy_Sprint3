@@ -1,0 +1,19 @@
+{
+  "name": "singleton2",
+  "version": "1.0.0",
+  "description": "this is an exercise to practice typescript and tdd with a singleton pattern",
+  "main": "index.ts",
+  "scripts": {
+    "dev": "npx ts-node ./src/index.ts",
+    "test": "jest"
+  },
+  "author": "Edu Gonzalez",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^29.5.1",
+    "@types/node": "^18.16.1",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.0.4"
+  }
+}

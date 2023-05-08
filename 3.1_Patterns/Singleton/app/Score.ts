@@ -5,7 +5,7 @@ export class Score {
     private static instance: Score
 
     private constructor() {
-        this.#game = []
+        this.game = []
     }
 
     public static getInstance(): Score {
@@ -15,11 +15,17 @@ export class Score {
         return Score.instance
     }
 
-    #players: Player[]
-    #game: Game []
+    private players!: Player[]
+    private game: Game []
 
+    public getProperties() {
+        return {
+            game: this.game
+        }
+    }
+    
     public showPoints(players: any) {
-        const formatedPoints = this.#players.map((player) => {
+        const formatedPoints = this.players.map((player) => {
             return {
                 name: player.getProperties().name,
                 points: player.getProperties().points,
@@ -30,20 +36,20 @@ export class Score {
 
     public addNewGame(gameNaming: string) {
         const newGame = new Game(gameNaming)
-        this.#game.push(newGame)
+        this.game.push(newGame)
     }
 
     public deleteGame(gameNaming: string) {
-        this.#game.filter(game => game.getProperties().game !== gameNaming)
+        this.game.filter(game => game.getProperties().game !== gameNaming)
     }
 
     public getGame(gameNaming: string) {
-        const gameSelected = this.#game.find(game => gameSelected)
+        const gameSelected = this.game.find((game) => game.getProperties().game === gameNaming)
         return gameSelected
     }
 
     public showScoreboard () {
-        this.#game.map((game) => {
+        this.game.map((game) => {
             game.showPointsOfTheGame()
         })
         

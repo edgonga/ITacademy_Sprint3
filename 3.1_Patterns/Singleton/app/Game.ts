@@ -20,56 +20,49 @@ export class Game {
         }
     }
 
-    public getPlayer(playerToGet: Player) {
-        const player = this.players.find((player) => player.getProperties().name === playerToGet.getProperties().name)
+    public updatePlayer(playerUpdated: Player) {
+        this.players = this.players.filter(player => player.getProperties().name !== playerUpdated.getProperties().name)
+        this.players.push(playerUpdated)
+    }
+
+    public getPlayer(playerToGet: string) {
+        const player = this.players.find((player) => player.getProperties().name === playerToGet)
+        if (! player) {
+            throw new Error("Player not found")
+        }
         return player
     }
 
-    private updatePlayer(playerUpdated: Player) {
-        this.players = this.players.filter(player => player.getProperties().name !== playerUpdated.getProperties().name)
-        this.players.push(playerUpdated)
-
-    }
-
-    public addPlayer(namePlayer: string) {
+    public addPlayer(namePlayer: string): void {
         const player = new Player(namePlayer)
         this.players.push(player)
+        player.mainGame = this
     }
 
     public deletePlayer(playerToDelete: Player) {
         this.players.filter(player => player.getProperties().name !== playerToDelete.getProperties().name)
+        this.updatePlayer(playerToDelete)
         return this.players
     }
 
-    public addPoints(playerToAdd: Player, points: number) {
-        const playerSelected = this.players.find(player => player.getProperties().name === playerToAdd.getProperties().name)
-        playerSelected?.addPlayerPoints(points)
-        this.updatePlayer(playerToAdd) // Is this correct or should I put playerSelected???
-    }
-
-    public subsPoints(playerToSubs: Player, points: number) {
-        const playerSelected = this.players.find(player => player.getProperties().name === playerToSubs.getProperties().name)
-        playerSelected?.subsPlayerPoints(points)
-        this.updatePlayer(playerToSubs)
-    }
-
     public showPointsOfTheGame() {
-        let winner: Player | null = null
+        let winner
         let maxPoints: number = 0
         this.players.map((player: Player) => {
             console.log({
+                space: "-------------------------",
                 name: player.getProperties().name,
                 points: player.getProperties().points,
-                game: this.gameNaming,
-                space: "-------------------------"
+                game: this.gameNaming
+                
             })
             if (player.getProperties().points > maxPoints) {
                 maxPoints = player.getProperties().points
-                winner = player
+                winner = player.getProperties().name
             }
             
         })
-     
+            console.log("The winner is: ");
             console.log(winner);
     }
 }

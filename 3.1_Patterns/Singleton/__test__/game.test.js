@@ -30,10 +30,9 @@ test("after deleting a player using deletePlayer, it returns the players updated
     game.addPlayer("Eduardo Grandez")
     const playerToAppearFisrt = game.getPlayer("Eduardo Grandez")
     const playerToDelete = game.getPlayer("Bea Garcia")
-    const updatePlayers = game.deletePlayer(playerToDelete) //deletePlayer is not deleting
-    console.log(updatePlayers)
+    const updatePlayers = game.deletePlayer(playerToDelete)
     expect(updatePlayers.length).toBe(1)
-    expect(updatePlayers[0].getProperties().name).toBe("Eduardo Grandez")
+    expect(updatePlayers[0].getProperties().name).toBe(playerToAppearFisrt.getProperties().name)
 })
 
 test("when getting a non-existing player an error is thrown", () => {

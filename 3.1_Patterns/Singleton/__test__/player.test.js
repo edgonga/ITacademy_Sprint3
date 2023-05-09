@@ -39,3 +39,8 @@ test("if a player gets negative points by applying the subsPoints method, an err
     expect(player.getProperties().points).toBe(10)
     expect(game.getPlayer("Toreto").getProperties().points).toBe(10)
 })
+
+
+
+
+

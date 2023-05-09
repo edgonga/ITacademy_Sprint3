@@ -40,7 +40,8 @@ export class Score {
     }
 
     public deleteGame(gameNaming: string) {
-        this.game.filter(game => game.getProperties().game !== gameNaming)
+        this.game = this.game.filter(game => game.getProperties().game !== gameNaming)
+        return this.game
     }
 
     public getGame(gameNaming: string) {

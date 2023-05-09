@@ -39,9 +39,8 @@ export class Game {
         player.mainGame = this
     }
 
-    public deletePlayer(playerToDelete: Player) {
-        this.players.filter(player => player.getProperties().name !== playerToDelete.getProperties().name)
-        this.updatePlayer(playerToDelete)
+    public deletePlayer(playerToDelete: Player | undefined) {
+        this.players = this.players.filter(player => player.getProperties().name !== playerToDelete?.getProperties().name)
         return this.players
     }
 

@@ -18,6 +18,7 @@ const paintball = scoreboard.getGame("Paintball")
 paintball?.addPlayer("Jack Sparrow")
 const jackSparrow = paintball?.getPlayer("Jack Sparrow")
 jackSparrow?.addPoints(47)
+scoreboard.deleteGame("Paintball")
 scoreboard.showScoreboard()
 
 

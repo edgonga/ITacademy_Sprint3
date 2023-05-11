@@ -22,5 +22,3 @@ oldCars.subscribeUser(oliver)
 oldCars.postMessage("Logan, you are a piece of shit", mcGregor)
 oldCars.postMessage("Bikes are better than cars motherfuckers!!", fisher)
 
-
-

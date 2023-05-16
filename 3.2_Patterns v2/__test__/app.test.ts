@@ -1,6 +1,13 @@
-const { operate } = require("../app/app")
+const { sum, multiply, divide } = require("./app")
 
-test("function can add two numbers", () => {
-    const result = operate(2, 3, (a: number, b: number) => a + b);
-    expect(result).toBe(5);
+test("functions operates correctly", () => {
+    const resultSum = sum(1, 4)
+    expect(resultSum).toBe(5)
+
+    const resultMult = multiply(5, 5)
+    expect(resultMult).toBe(25)
+
+    const resultDiv = divide(10, 5)
+    expect(resultDiv).toBe(2)
 })
+

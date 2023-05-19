@@ -1,0 +1,21 @@
+# Use a nodejs image
+FROM node:14
+
+# Install RabbitMQ inside the container
+RUN apt-get update && apt-get install -y rabbitmq-server
+
+# Copy all the app's files to the container's image
+COPY . /app
+
+# Define the working repository inside the container
+WORKDIR /app
+
+# Install al the app dependencies
+RUN npm install
+
+# Expose the necessary ports for the communication between RabbitMQ and the administrative interface
+EXPOSE 5672 15672
+
+# Define the commands to init the app
+CMD ["npm", "start"]
+

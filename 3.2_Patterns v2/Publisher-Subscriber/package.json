@@ -1,0 +1,24 @@
+{
+  "name": "publisher-subscriber",
+  "version": "1.0.0",
+  "description": "A project that tries to simulate a student handing exercise being notified to his/her teacher using Publisher - Subscriber logic and RabbitMQ library",
+  "main": "app.ts",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Edu Gonzalez - @edgonga",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jest": "^29.5.1",
+    "amqplib": "^0.10.3",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  },
+  "devDependencies": {
+    "@types/amqplib": "^0.10.1",
+    "@types/node": "^18.15.11"
+  }
+  
+}

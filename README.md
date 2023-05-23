@@ -3,7 +3,7 @@ Barcelona Activa 3rd sprint of the bootcamp BA Node.js
 
 Take note that the "Publisher-Subscriber" project needs RabbitMQ to be executed
 
-That's why I prepare this project to be launch with Docker without downloading and installing RabbitMQ
+(Not totally implemented) That's why I prepare this project to be launch with Docker without downloading and installing RabbitMQ
 
 To run the container:
 

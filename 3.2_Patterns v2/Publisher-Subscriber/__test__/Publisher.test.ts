@@ -1,4 +1,5 @@
-import { Publisher } from '../app/Publisher'
+import { test } from 'node:test'
+import { Publisher } from '../src/Publisher'
 import * as amqp from 'amqplib'
 
 test("it can connect to the queue", async() => {

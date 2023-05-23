@@ -2,8 +2,8 @@ import * as amqp from 'amqplib'
 
 export class Publisher {
 
-    private connection: amqp.Connection
-    private channel: amqp.Channel
+    private connection!: amqp.Connection
+    private channel!: amqp.Channel
     private queueName: string
     private studentName: string
 
@@ -31,7 +31,7 @@ export class Publisher {
                 await this.channel.assertQueue(this.queueName, { durable: false })
                 return
             } catch (err) {
-                console.error(`Failed to connect: ${err.message}`)
+                console.error(`Failed to connect`)
                 attempts--
                 const delay = Math.pow(2, 3 - attempts) * 1000
                 await new Promise(resolve => setTimeout(resolve, delay))
@@ -51,7 +51,7 @@ export class Publisher {
             this.channel.sendToQueue(this.queueName, Buffer.from(homework))
             this.logHomeworkPublished(homework)
         } catch (err) {
-            console.error(`Failed to publish the homework to the queue ${this.queueName} (error: ${err.message})`)
+            console.error(`Failed to publish the homework to the queue ${this.queueName}`)
             
         }        
     }

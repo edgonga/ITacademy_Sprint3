@@ -2,8 +2,8 @@ import * as amqp from 'amqplib'
 
 export class Subscriber {
 
-    private connection: amqp.Connection
-    private channel: amqp.Channel
+    private connection!: amqp.Connection
+    private channel!: amqp.Channel
     private queueName: string
     private teacherName: string
 
